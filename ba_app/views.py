@@ -4,7 +4,6 @@ from .models import *
 def index(request):
     context={
         "Books" : Book.objects.all(),
-        "Authors" : Author.objects.all()
     }
     return render (request, "index.html", context)
 
@@ -21,3 +20,13 @@ def RenderAuthor(request):
 def addAuthor(request):
     Author.objects.create(name=request.POST["name"], notes=request.POST["notes"])
     return redirect ('/RenderAuthor')
+
+def viewBookRend(request):
+    context={
+        "Books":Book.objects.all()
+    }
+    return render (request, "viewBookRend.html", context)
+
+def viewBookEdit(request):
+    Book.objects.get(id=request.POST['id'])
+    return redirect ('/viewBookRend')
