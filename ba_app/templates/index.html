@@ -20,7 +20,7 @@
     </form>
     <h1>All Books</h1>
     {% for Book in Books %}
-    <p>Title: {{Book.title}} - Book Description: {{Book.description}} - <a href="/viewBookRend">View this book</a></p>
+    <p>Title: {{Book.title}} - Book Description: {{Book.description}} - <a href="/viewBookRend/{{Book.id}}">View this book</a></p>
     {% endfor %}
     <a href="/RenderAuthor">Add an Author</a>
 </body>

@@ -21,9 +21,10 @@ def addAuthor(request):
     Author.objects.create(name=request.POST["name"], notes=request.POST["notes"])
     return redirect ('/RenderAuthor')
 
-def viewBookRend(request):
+def viewBookRend(request, book_id):
     context={
-        "Books":Book.objects.all()
+        "Book":Book.objects.filter(id=book_id).get(),
+        "Authors":Author.objects.all()
     }
     return render (request, "viewBookRend.html", context)
 

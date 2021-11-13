@@ -7,10 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Selected book</h1>
-    <form action="/ViewBookEdit" method="POST">
-    {% for Book in Books %}
-        {{Book.id}}
+    <h1>Selected book:</h1>
+    <form action="/viewBookEdit" method="POST">
+        <h1>Title: {{Book.title}}</h1>
+        <h3>Books Description: {{Book.description}}</h3>
+    <br>
+    <h2>List of Authors</h2>
+    {% for Author in Authors %}
+        <p>{{Author.name}}</p>
     {% endfor %}
     </form>
 </body>
