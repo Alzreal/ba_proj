@@ -8,4 +8,5 @@ urlpatterns = [
     path('RenderAuthor', views.RenderAuthor),
     path('addAuthor', views.addAuthor),
     path('viewBookRend/<int:book_id>', views.viewBookRend),
+    path('viewBookEdit', views.viewBookEdit),
 ]

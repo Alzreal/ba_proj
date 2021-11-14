@@ -9,13 +9,17 @@
 <body>
     <h1>Selected book:</h1>
     <form action="/viewBookEdit" method="POST">
+        {% csrf_token %}
         <h1>Title: {{Book.title}}</h1>
         <h3>Books Description: {{Book.description}}</h3>
     <br>
-    <h2>List of Authors</h2>
-    {% for Author in Authors %}
-        <p>{{Author.name}}</p>
-    {% endfor %}
+    <h2>Add an Author to this book</h2>
+    <select name="Authors">
+        {% for Author in Authors %}
+            <option value="{{Author.id}}">{{Author.name}}</option>
+        {% endfor %}
+    </select>
+    <button>Add this Author</button>
     </form>
 </body>
 </html>
