@@ -11,16 +11,6 @@ def addBook(request):
     Book.objects.create(title=request.POST["title"], description = request.POST["description"])
     return redirect ("/")
 
-def RenderAuthor(request):
-    context={
-        "Authors":Author.objects.all()
-    }
-    return render (request, 'author.html', context)
-
-def addAuthor(request):
-    Author.objects.create(name=request.POST["name"], notes=request.POST["notes"])
-    return redirect ('/RenderAuthor')
-
 def viewBookRend(request, book_id):
     context={
         "Book":Book.objects.filter(id=book_id).get(),
@@ -38,10 +28,21 @@ def viewBookEdit(request):
     book.authors.add(author)
     return redirect ('/viewBookRend/' + str(book.id), context)
 
+
+def addAuthor(request):
+    Author.objects.create(name=request.POST["name"], notes=request.POST["notes"])
+    return redirect ('/RenderAuthor')
+
+def RenderAuthor(request):
+    context={
+        "Authors":Author.objects.all()
+    }
+    return render (request, 'author.html', context)
+
 def viewAuthRend(request, author_id):
     context={
-        "Book":Book.objects.all(),
-        "Authors":Author.objects.filter(id=author_id).get()
+        "Books":Book.objects.all(),
+        "Author":Author.objects.filter(id=author_id).get(),
     }
     return render (request, "viewAuthRend.html", context)
 

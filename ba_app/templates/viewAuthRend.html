@@ -10,11 +10,11 @@
     <h1>Selected Author:</h1>
     <form action="/viewAuthEdit" method="POST">
         {% csrf_token %}
-        <h1>Name: {{Author.name}}</h1>
-        <h2>Notes: {{Author.notes}}</h2>
+            <h1>Name: {{Author.name}}</h1>
+            <h2>Notes: {{Author.notes}}</h2>
     <br>
     <h3>Books associated with this Author</h3>
-    {% for Book in Book.authors.all %}
+    {% for Book in Author.books.all %}
         {{Book.title}}
     {% endfor %}
     <br>
@@ -27,5 +27,6 @@
     <input type=hidden name="author_id" value={{Author.id}}>
     <button>Add this Book</button>
     </form>
+    <a href="/RenderAuthor">Back to Authors</a>
 </body>
 </html>
