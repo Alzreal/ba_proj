@@ -14,17 +14,17 @@
         <h2>Books Description: {{Book.description}}</h2>
     <br>
     <h3>Authors associated with this book</h3>
-    {% for Book in Books %}
-        {{Book.authors.all}}
+    {% for Author in Book.authors.all %}
+        {{Author.name}}
     {% endfor %}
     <br>
     <h2>Add an Author to this book</h2>
-    <select name="author">
+    <select name="author_id">
         {% for Author in Authors %}
             <option value="{{Author.id}}">{{Author.name}}</option>
         {% endfor %}
     </select>
-    <input type=hidden name="book">
+    <input type=hidden name="book_id" value={{Book.id}}>
     <button>Add this Author</button>
     </form>
 </body>

@@ -33,7 +33,7 @@ def viewBookEdit(request):
         "books": Book.objects.all(),
         "authors": Author.objects.all()
     }
-    book = Book.objects.get(id=request.POST['book'])
-    author = Author.objects.get(id=request.POST['author'])
-    author.books.add(book)
-    return redirect ('/viewBookRend/<int:book_id>', context)
+    book = Book.objects.get(id=request.POST['book_id'])
+    author = Author.objects.get(id=request.POST['author_id'])
+    book.authors.add(author)
+    return redirect ('/viewBookRend/' + str(book.id), context)
