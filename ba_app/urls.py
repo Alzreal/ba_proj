@@ -9,4 +9,6 @@ urlpatterns = [
     path('addAuthor', views.addAuthor),
     path('viewBookRend/<int:book_id>', views.viewBookRend),
     path('viewBookEdit', views.viewBookEdit),
+    path('viewAuthRend/<int:author_id>', views.viewAuthRend),
+    path('viewAuthEdit', views.viewAuthEdit),
 ]

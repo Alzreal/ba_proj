@@ -37,3 +37,20 @@ def viewBookEdit(request):
     author = Author.objects.get(id=request.POST['author_id'])
     book.authors.add(author)
     return redirect ('/viewBookRend/' + str(book.id), context)
+
+def viewAuthRend(request, author_id):
+    context={
+        "Book":Book.objects.all(),
+        "Authors":Author.objects.filter(id=author_id).get()
+    }
+    return render (request, "viewAuthRend.html", context)
+
+def viewAuthEdit(request):
+    context= {
+        "books": Book.objects.all(),
+        "authors": Author.objects.all()
+    }
+    book = Book.objects.get(id=request.POST['book_id'])
+    author = Author.objects.get(id=request.POST['author_id'])
+    book.authors.add(author)
+    return redirect ('/viewAuthRend/' + str(author.id), context)

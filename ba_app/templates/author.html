@@ -16,7 +16,7 @@
     </form>
     <h1>List of Authors</h1>
     {% for Author in Authors %}
-    <p>Name: {{Author.name}} - Notes: {{Author.notes}}</p>
+    <p>Name: {{Author.name}} - Notes: {{Author.notes}} - <a href="/viewAuthRend/{{Author.id}}">View this Author</a></p>
     {% endfor %}
     <a href="/">Add a Book</a>
 </body>
